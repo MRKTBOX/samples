@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import useLogin from './api/useLogin';
 
@@ -7,14 +7,18 @@ import Input from './Input';
 
 function Login() {
 
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  
   return (
     <>
       <Input 
-        value={'username'} 
-        onChange={() => {}}
+        value={username} 
+        onChange={setUserName}
       />
       <Input
-        value={'password'}
+        value={password}
+        onChange={setPassword}
         secret
       />
       <Button onClick={() => {}} disabled>
