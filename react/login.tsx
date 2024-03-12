@@ -1,25 +1,26 @@
 import React from "react";
 
-import useLogin from '/react/api/useLoggin';
+import useLogin from './api/useLogin';
 
-import Button from '.'
-import Input from '.'
+import Button from './Button';
+import Input from './Input';
 
 function Login() {
 
-  return (<div>
-    <Input 
-      value={'username'} 
-      onChange={() => {}}
-    />
-    <Input
-      value={'password'}
-      secret
-    />
-    <Button onClick={() => {}} disabled>
-      Submit
-    </Button>
-  </div>
+  return (
+    <>
+      <Input 
+        value={'username'} 
+        onChange={() => {}}
+      />
+      <Input
+        value={'password'}
+        secret
+      />
+      <Button onClick={() => {}} disabled>
+        Submit
+      </Button>
+    </>
   )
 }
 
