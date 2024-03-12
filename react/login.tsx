@@ -9,6 +9,20 @@ function Login() {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+
+  const [valid, setValid] = useState(false);
+
+  const evaluateValid(username : string, password : string) => {
+    if(username!=='' && password!=='') {
+      setValid(true);
+    } else {
+      setValid(false);
+    }
+  }
+
+  useEffect(() => {
+    evaluateValid(username, password);
+  }, [username, password]);
   
   return (
     <>
@@ -21,7 +35,7 @@ function Login() {
         onChange={setPassword}
         secret
       />
-      <Button onClick={() => {}} disabled>
+      <Button onClick={() => {}} disabled={!valid}>
         Submit
       </Button>
     </>
