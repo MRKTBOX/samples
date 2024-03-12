@@ -7,12 +7,14 @@ import Input from './Input';
 
 function Login() {
 
+  const { submitLogin } = useLogin();
+  
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
   const [valid, setValid] = useState(false);
 
-  const evaluateValid(username : string, password : string) => {
+  function evaluateValid(username : string, password : string){
     if(username!=='' && password!=='') {
       setValid(true);
     } else {
@@ -20,6 +22,11 @@ function Login() {
     }
   }
 
+  const handleSubmit = async () => {
+    const user = await submitLogin(username, password);
+    alert('Hi ', user.name);
+  }
+  
   useEffect(() => {
     evaluateValid(username, password);
   }, [username, password]);
@@ -35,7 +42,7 @@ function Login() {
         onChange={setPassword}
         secret
       />
-      <Button onClick={() => {}} disabled={!valid}>
+      <Button onClick={handleSubmit} disabled={!valid}>
         Submit
       </Button>
     </>
