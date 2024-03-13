@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import useLogin from '/react/api/useLoggin.ts';
 import Button from './Button.ts'
 import Input from './Input.ts'
@@ -6,6 +6,14 @@ import Input from './Input.ts'
 function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [valid, setValid] = useState(false)
+
+  useEffect(() => {
+    // if inputs are non empty -> valid
+    if(username.length && password.length) {
+      setValid(!valid)
+    }
+  }, [valid])
   
   return (
     <div>
@@ -22,7 +30,7 @@ function Login() {
           setPassword(password)
         }}
       />
-      <Button onClick={() => {}} disabled>
+      <Button onClick={() => {}} disabled={valid ? false : true}>
         Submit
       </Button>
     </div>
