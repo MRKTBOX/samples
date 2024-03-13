@@ -4,6 +4,7 @@ import Button from './Button.ts'
 import Input from './Input.ts'
 
 function Login() {
+  const { submitLogin } = useLoggin()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [valid, setValid] = useState(false)
@@ -30,7 +31,11 @@ function Login() {
           setPassword(password)
         }}
       />
-      <Button onClick={() => {}} disabled={valid ? false : true}>
+      <Button 
+        onClick={() => {
+          submitLogin(username, password)
+        }} 
+        disabled={valid ? false : true}>
         Submit
       </Button>
     </div>
