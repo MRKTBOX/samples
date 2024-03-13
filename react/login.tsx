@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import useLogin from '/react/api/useLoggin';
 
@@ -8,6 +8,13 @@ import Input from '.'
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    if (username.length != 0 && password.length != 0) {
+      setValid(true);
+    }
+  }, [username, password])
 
   return (<div>
     <form>
@@ -25,7 +32,9 @@ function Login() {
         disabled={false}
         secret={true}
       />
-      <Button type="submit" onClick={() => {}} disabled>
+      <Button type="submit" onClick={() => {}}
+        disabled={ valid ? false : true }
+      >
         Submit
       </Button>
     </form>
