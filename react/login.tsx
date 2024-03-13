@@ -8,17 +8,23 @@ import Input from '.'
 function Login() {
 
   return (<div>
-    <Input 
-      value={'username'} 
-      onChange={() => {}}
-    />
-    <Input
-      value={'password'}
-      secret
-    />
-    <Button onClick={() => {}} disabled>
-      Submit
-    </Button>
+    <form>
+      <lable>username</lable>
+      <Input 
+        value={'username'} 
+        onChange={() => {}}
+        placeholder="Please enter your username."
+      />
+      <label>password</label>
+      <Input
+        value={'password'}
+        secret
+        placeholder="Please enter your password."
+      />
+      <Button type="submit" onClick={() => {}} disabled>
+        Submit
+      </Button>
+    </form>
   </div>
   )
 }
