@@ -7,19 +7,22 @@ import Input from '.'
 
 function Login() {
 
-  return (<div>
-    <Input 
-      value={'username'} 
-      onChange={() => {}}
-    />
-    <Input
-      value={'password'}
-      secret
-    />
-    <Button onClick={() => {}} disabled>
-      Submit
-    </Button>
-  </div>
+  return (
+    <div>
+        <Input 
+          
+          value={'username'} 
+          onChange={() => {}}
+        />
+      <Input
+        value={'password'}
+        secret
+      />
+      <Button onClick={() => {}} 
+        disabled>
+        Submit
+      </Button>
+    </div>
   )
 }
 
