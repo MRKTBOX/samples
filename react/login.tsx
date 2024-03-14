@@ -1,4 +1,4 @@
-import React {useState} from "react";
+import React {useEffect, useState} from "react";
 
 import useLogin from '/react/api/useLoggin';
 
@@ -9,6 +9,17 @@ function Login() {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [valid, SetValid] = useState(false);
+
+  function validateUserInfo(username, password) {
+    if(username !== "" && passsword !== "") {
+     setValid(true);
+    }
+  }
+
+   useEffect(() => {
+     validateUserInfo(username, password);
+     }, [validateUserInfo])
 
   return (
     <div>
@@ -22,7 +33,8 @@ function Login() {
         onChange={() => setPassword(password)}
       />
       <Button onClick={() => {}} 
-        disabled>
+        
+        disabled = {() => validateUserInfo(username, password)}>
         Submit
       </Button>
     </div>
